@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block body %}
+    
+    <div class="container text-center d-flex flex-column" style="margin-top: 100px;"></div>
+    <p class="text">Edit: <span>{{ event.Name }}</span> </p>
+    <div class='col-lg-12 col-md-12 d-flex justify-content-center'>
+    <div class='container fluid row gap-3 text-center '>
+        <div class="container gradient card-body d-flex flex-column">
+            <br><br>
+
+    {{ include('events/_form.html.twig', {'button_label': 'Save'}) }}
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    
+{% endblock %}

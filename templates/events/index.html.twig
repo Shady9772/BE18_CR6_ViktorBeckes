@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events{% endblock %}
+
+{% block body %}
+
+<div class="container text-center d-flex flex-column" style="margin-top: 100px;">
+    <p class="text">Events</p>
+
+    <div class='col-lg-12 col-md-12 d-flex justify-content-center'>
+    <div class='container fluid row gap-3 text-center '>
+            
+        {% for event in events %}
+
+        <div class="card gradient card-body" style="width: 30rem;">
+            <h5 class="card-title text fs-1 p"><span>{{ event.Name }}</span></h5><br>
+            <div class="container"><img src="{{asset("Pictures/" ~ event.Image)}}" class="card-img-top" alt="No image found" width="100%"></div>
+              <h1 class="card-text text"> <span>Date:</span>  {{ event.Date ? event.Date|date('Y-m-d H:i:s') : '' }}</h1>
+            <div class="container">
+                <a href="{{ path('app_events_show', {'id': event.id}) }}" class="text btn btn-primary w-25 a">show</a>
+                <a href="{{ path('app_events_edit', {'id': event.id}) }}" class="text btn btn-warning w-25 a">edit</a>
+            </div>
+              
+        </div>
+        
+         {% else %}
+            <h1 class="text-danger fs-1">No Records found</h1>
+        {% endfor %}
+    
+    </div>
+    </div>
+    <br>
+    
+    <div class="container"><a href="{{ path('app_events_new') }}" class="btn btn-success w-25 text button glow-button">Create Event</a></div>
+    <br> <br> <br> <br>
+    
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details{% endblock %}
+
+{% block body %}
+<div class="container text-center d-flex flex-column" style="margin-top: 100px;"></div>
+<p class="text">{{ event.Name }}</p>
+<div class='col-lg-12 col-md-12 d-flex justify-content-center'>
+    
+    <div class='container fluid row gap-3 text-center '>
+    <div class="container gradient card-body text-center">
+        <br>
+        <div class="container w-75"><img src="{{asset("Pictures/" ~ event.Image)}}" class="card-img-top" alt="No image found" width="100%"></div>
+        <br>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th><span>Date</span></th>
+                    <td class="text">{{ event.Date ? event.Date|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th><span>Description</span></th>
+                    <td class="text">{{ event.Description }}</td>
+                </tr>
+                <tr>
+                    <th><span>Capacity</span></th>
+                    <td class="text">{{ event.Capacity }}</td>
+                </tr>
+                <tr>
+                    <th><span>Email</span></th>
+                    <td class="text">{{ event.email }}</td>
+                </tr>
+                <tr>
+                    <th><span>Contact</span></th>
+                    <td class="text">{{ event.Contact }}</td>
+                </tr>
+                <tr>
+                    <th><span>Address</span></th>
+                    <td class="text">{{ event.Address }}</td>
+                </tr>
+                <tr>
+                    <th><span>URL</span></th>
+                    <td class="text">{{ event.URL }}</td>
+                </tr>
+                <tr>
+                    <th><span>Type</span></th>
+                    <td class="text">{{ event.Type }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="container">
+    <a href="{{ path('app_events_index') }}" class="btn btn-primary w-25 text a">back to list</a><br><br>
+    {{ include('events/_delete_form.html.twig') }}
+    <br>
+    <a href="{{ path('app_events_edit', {'id': event.id}) }}" class="btn btn-warning w-25 text a">edit</a>
+    <br> <br> <br> <br>
+    </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

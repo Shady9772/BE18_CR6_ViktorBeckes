@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <br><br>
+    <div class="container">
+        <button class="btn btn-success text w-25 text button glow-button">{{ button_label|default('Save') }}</button>
+        
+        <a href="{{ path('app_events_index') }}" class="btn btn-primary w-25 text a">back to list</a>
+        <br> <br> <br> <br>
+    </div>
+    
+{{ form_end(form) }}
